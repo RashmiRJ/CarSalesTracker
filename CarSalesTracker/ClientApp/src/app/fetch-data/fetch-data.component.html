@@ -1,0 +1,35 @@
+<h1 id="tableLabel">Car Sales Matrix</h1>
+
+<p *ngIf="!aggregatedata"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="aggregatedata">
+  <thead>
+    <tr>
+      <th></th>
+      <th *ngFor="let name of aggregatedata.columns" attr.id="{{ name }}">{{ name }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of aggregatedata.rows">
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td *ngFor="let name of aggregatedata.columns"></td>
+    </tr>
+
+    <tr>
+      <td>Avg.</td>
+      <td *ngFor="let average of aggregatedata.averages">{{ average }}</td>
+    </tr>
+    <tr>
+      <td>Med.</td>
+      <td *ngFor="let median of aggregatedata.medians">{{ median }}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td *ngFor="let total of aggregatedata.totals">{{ total }}</td>
+    </tr>
+  </tbody>
+</table>
